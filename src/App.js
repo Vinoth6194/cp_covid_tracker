@@ -1,7 +1,9 @@
 import { FormControl, MenuItem, Select } from '@material-ui/core';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [countries, setCountries] = useState(['USA', 'UK', 'India']);
   return (
     <div className="app">
       <div class="app__header">
@@ -9,10 +11,9 @@ function App() {
 
         <FormControl className="app_dropdown">
           <Select variant="outlined" value="abc">
-            <MenuItem value="worldwide">worldwide</MenuItem>
-            <MenuItem value="worldwide">Option 2</MenuItem>
-            <MenuItem value="worldwide">option 3</MenuItem>
-            <MenuItem value="worldwide">hey</MenuItem>
+            {countries.map(country => (
+              <MenuItem value={country}>{country}</MenuItem>
+            ))}
           </Select>
         </FormControl>
       </div>
