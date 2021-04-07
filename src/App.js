@@ -24,6 +24,9 @@ function App() {
   const onCountryChange = async e => {
     const countryCode = e.target.value;
     console.log(countryCode);
+    setCountry(countryCode);
+    console.log('Selected Country is', country);
+    console.log('Selected Country code is', countryCode);
   };
   return (
     <div className="app">
