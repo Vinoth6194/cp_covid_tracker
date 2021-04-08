@@ -4,6 +4,7 @@ import {
   MenuItem,
   Select,
   CardContent,
+  responsiveFontSizes,
 } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import './App.css';
@@ -13,6 +14,7 @@ import Map from './Map';
 function App() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState('worldwide');
+  const [countryInfo, setCountryInfo] = useState({});
 
   useEffect(() => {
     const getCountriesData = async () => {
@@ -31,11 +33,27 @@ function App() {
 
   const onCountryChange = async e => {
     const countryCode = e.target.value;
-    console.log(countryCode);
-    setCountry(countryCode);
-    console.log('Selected Country is', country);
+    // console.log(countryCode);
+    // setCountry(countryCode);
+    // console.log('Selected Country is', country);
     console.log('Selected Country code is', countryCode);
+
+    //* set the url based on the countrycode
+    const url =
+      countryCode === 'worldwide'
+        ? 'https://disease.sh/v3/covid-19/all'
+        : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
+
+    //*fetch based on the url
+    await fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        setCountry(countryCode);
+        setCountryInfo(data);
+      });
   };
+  console.log(countryInfo);
+
   return (
     <div className="app">
       <div className="app__left">
