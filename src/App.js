@@ -4,17 +4,18 @@ import {
   MenuItem,
   Select,
   CardContent,
-  responsiveFontSizes,
 } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import './App.css';
 import InfoBox from './InfoBox';
 import Map from './Map';
+import Table from './Table';
 
 function App() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState('worldwide');
   const [countryInfo, setCountryInfo] = useState({});
+  const [tableData, setTableData] = useState([]);
 
   //*For countries dropdown oon page load
   useEffect(() => {
@@ -26,12 +27,13 @@ function App() {
             name: country.country,
             value: country.countryInfo.iso2,
           }));
+          setTableData(data);
           setCountries(countries);
         });
     };
     getCountriesData();
   }, []);
-
+  console.log('TableData>>>', tableData);
   //*for the worldwide data in infobox on pageload
   useEffect(() => {
     fetch('https://disease.sh/v3/covid-19/all')
@@ -112,6 +114,7 @@ function App() {
       <Card className="app__right">
         <CardContent>
           <h3>Live Cases by Country</h3>
+          <Table countries={tableData}></Table>
           <h3>Worldwide new deaths</h3>
         </CardContent>
       </Card>
