@@ -50,10 +50,12 @@ function App() {
       {/* infoboxes
       infoboxes
       infoboxes */}
+      <div class="app__stats">
+        <InfoBox title="Coronavirus Cases" cases="123" total="1.2"></InfoBox>
+        <InfoBox title="Recovered" cases="1234" total="1.23"></InfoBox>
+        <InfoBox title="Deaths" cases="1235" total="1.24"></InfoBox>
+      </div>
 
-      <InfoBox title="Coronavirus Cases" cases="123" total="1.2"></InfoBox>
-      <InfoBox title="Recovered" cases="1234" total="1.23"></InfoBox>
-      <InfoBox title="Deaths" cases="1235" total="1.24"></InfoBox>
       {/* table */}
       {/* graph */}
 
