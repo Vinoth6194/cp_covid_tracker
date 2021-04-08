@@ -16,3 +16,9 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+.app {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}
