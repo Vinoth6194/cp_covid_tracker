@@ -16,6 +16,7 @@ function App() {
   const [country, setCountry] = useState('worldwide');
   const [countryInfo, setCountryInfo] = useState({});
 
+  //*For countries dropdown oon page load
   useEffect(() => {
     const getCountriesData = async () => {
       await fetch('https://disease.sh/v3/covid-19/countries')
@@ -29,6 +30,13 @@ function App() {
         });
     };
     getCountriesData();
+  }, []);
+
+  //*for the worldwide data in infobox on pageload
+  useEffect(() => {
+    fetch('https://disease.sh/v3/covid-19/all')
+      .then(response => response.json())
+      .then(data => setCountryInfo(data));
   }, []);
 
   const onCountryChange = async e => {
