@@ -81,9 +81,21 @@ function App() {
       infoboxes
       infoboxes */}
         <div className="app__stats">
-          <InfoBox title="Coronavirus Cases" cases="123" total="1.2"></InfoBox>
-          <InfoBox title="Recovered" cases="1234" total="1.23"></InfoBox>
-          <InfoBox title="Deaths" cases="1235" total="1.24"></InfoBox>
+          <InfoBox
+            title="Coronavirus Cases"
+            cases={countryInfo.todayCases}
+            total={countryInfo.cases}
+          ></InfoBox>
+          <InfoBox
+            title="Recovered"
+            cases={countryInfo.todayRecovered}
+            total={countryInfo.recovered}
+          ></InfoBox>
+          <InfoBox
+            title="Deaths"
+            cases={countryInfo.todayDeaths}
+            total={countryInfo.deaths}
+          ></InfoBox>
         </div>
 
         {/* map */}
