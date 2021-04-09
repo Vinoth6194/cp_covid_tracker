@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Table.css';
 function Table({ countries }) {
   return (
     <div className="table">
@@ -14,5 +14,4 @@ function Table({ countries }) {
     </div>
   );
 }
-
 export default Table;
