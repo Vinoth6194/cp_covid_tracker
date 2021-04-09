@@ -65,7 +65,7 @@ function App() {
         setCountryInfo(data);
       });
   };
-  console.log(countryInfo);
+  console.log('OnLoad', countryInfo);
 
   return (
     <div className="app">
